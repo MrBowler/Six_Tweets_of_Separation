@@ -6,6 +6,10 @@ import numpy as np
 from scipy.sparse import *
 from decimal import Decimal
 
+# for a graphical representation, look at Hits_Slide.png that is located in this folder
+# this includes the hub and authority values that were used in the tests below
+# this slide is taken from a set of slides made by Joni Pajarinen
+# the slides can be found at http://www.cis.hut.fi/Opinnot/T-61.6020/2008/pagerank_hits.pdf
 tiny_corpus = [
 	{"text": "Hey @node2 @node3 and @node4 we should work on the hw together", "screen_name": "node1"},
 	{"text": "I'm game, what about @node3 and @node4?", "screen_name": "node2"},
