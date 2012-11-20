@@ -8,6 +8,7 @@ What Python libraries need to be installed:
 	* nose
 
 How to run:
+	* Extract all the files from this repo
 	* Change directory to this file
 	* Run this line:
 		$ nosetests
