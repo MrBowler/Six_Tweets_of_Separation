@@ -1,6 +1,6 @@
 README for "Six Tweets of Separation" Crawl Code
 ================================================
-What needs to be installed:
+What Python libraries need to be installed:
 	* tweepy
 	* ujson
 	
