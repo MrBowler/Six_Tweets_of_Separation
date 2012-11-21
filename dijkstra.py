@@ -3,6 +3,7 @@
 
 # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/117228
 from priodict import priorityDictionary
+import utils
 
 def Dijkstra(graph,start,end=None):
 	"""
@@ -88,3 +89,16 @@ def shortestPath(graph,start,end):
 		end = predecessors[end]
 	path.reverse()
 	return path
+	
+def main():
+	graphs = utils.read_tweets()
+	graph = {}
+	for g in graphs:
+		graph = g
+	start = raw_input('Enter Start Point: ')
+	end = raw_input('Enter End Point: ')
+	path = shortestPath(graph, start, end)
+	print path
+	
+if __name__ == "__main__":
+	main()

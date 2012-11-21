@@ -84,3 +84,14 @@ class HITS(object):
 		self.hubs_and_authorities(tweets)
 		temp = csr_matrix.transpose(self.auth)
 		return np.asarray(temp.todense()).tolist()[0]
+
+def main():
+	tweets = utils.read_tweets()
+	h = HITS()
+	print "Hubs:"
+	print h.get_hub(tweets)
+	print "Authorities:"
+	print h.get_auth(tweets)
+	
+if __name__ == "__main__":
+	main()
