@@ -10,8 +10,6 @@ What Python libraries need to be installed:
 	* wx
 
 How to run tests:
-	* IMPORTANT: DELETE dijkstra_tests.py BEFORE RUNNING THE NOSETESTS
-	* I was having trouble deleting dijkstra_tests.py from the repo
 	* Extract all the files from this repo
 	* Change directory to this folder
 	* Run this line:
