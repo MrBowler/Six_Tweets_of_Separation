@@ -21,10 +21,6 @@ def main():
 		temp = json.loads(line)
 		t = ast.literal_eval(temp.keys()[0])
 		graph.add_edge(t[0], t[1], temp.values()[0])
-		users.add(t[0])
-		users.add(t[1])
-		if len(users) > 3400000:
-			break
 	users = set(graph.nodes())
 	quit_loop = False
 	while not quit_loop:

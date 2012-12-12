@@ -11,7 +11,7 @@ from scipy.sparse import *
 
 class HITS(object):
 	def __init__(self):
-		#self.db = utils.connect_db("STOS", True)
+		self.db = utils.connect_db("STOS", True)
 		self.user_connections = defaultdict(set)
 		self.graph = nx.DiGraph()
 		self.user_to_id = defaultdict(int)
@@ -22,6 +22,7 @@ class HITS(object):
 	def set_users(self, tweets):
 		count = 0
 		for tweet in tweets:
+			self.db.tweets.insert(tweet)
 			if "@" + tweet["screen_name"] not in self.user_to_id:
 				self.user_to_id["@" + tweet["screen_name"]] = count
 				self.id_to_user[count] = "@" + tweet["screen_name"]
@@ -66,11 +67,8 @@ class HITS(object):
 		test_auth = csr_matrix(np.zeros((len(self.user_to_id.keys()),1)))
 		test_hub = csr_matrix(np.zeros((len(self.user_to_id.keys()),1)))
 		print "Matrices Made"
-		count = 0
 		
 		while not np.allclose(np.asarray(self.auth.todense()),np.asarray(test_auth.todense())) or not np.allclose(np.asarray(self.hub.todense()),np.asarray(test_hub.todense())):
-			print count
-			count += 1
 			test_auth = self.auth.copy()
 			test_hub = self.hub.copy()
 			self.auth = AT.dot(self.hub)
